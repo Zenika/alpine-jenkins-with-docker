@@ -31,10 +31,12 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh 'docker build -t local/application:${BRANCH_NAME} $JENKINS_INSTALL$PWD'
+                sh 'docker build -t local/application:${BRANCH_NAME} $PWD'
                 sh 'docker-compose -p ${BRANCH_NAME}-demo up -d'
             }
         }
     }
 }
 ```
+
+NB: Do not use the $JENKINS_INSTALL when using the `docker build` command because the client context is in the Jenkins container so $PWD is enought to send the context
