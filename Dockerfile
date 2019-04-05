@@ -12,7 +12,7 @@ RUN apk -U --no-cache \
 	--allow-untrusted add \
     gcc \
     docker \
-    py-pip python-dev libffi-dev openssl-dev gcc libc-dev make \
+    py-pip python-dev libffi-dev openssl-dev libc-dev make \
     && pip install docker-compose \
     && rm -rf /var/cache/* \
     && mkdir /var/cache/apk
